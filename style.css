@@ -1,49 +1,226 @@
-@font-face {
+/* ---------- FONTS & BASIC ---------- */
+@font-face{
   font-family: 'big-shot';
-  src: url('fonts/big-shot.ttf'); 
+  /* replace with your font file if you have it */
+  src: url('fonts/big-shot.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
 }
 
-body {
-    scroll-behavior: smooth;
-    font-family: 'big-shot', 'VT323', monospace;
-    color: #B4E2F2;
-    background-color: #060708;
+:root{
+  --crt-cyan: #B4E2F2;
+  --crt-dark: #060708;
+  --ghost-color: #ff00ff33;
+  --glow: #2C6693;
 }
 
-body:before {
-    content: "";
-    position: fixed;
-    top: 0; left: 0;
-    width: 100%;
-    height: 100%;
-    background: repeating-linear-gradient(
-        transparent 0px,
-        transparent 2px,
-        rgba(47,47,85,1) 3px
-    );
-    pointer-events: none;
+/* page base */
+html,body{height:100%}
+body{
+  margin:0;
+  font-family: 'big-shot', 'VT323', monospace;
+  background: var(--crt-dark);
+  color: var(--crt-cyan);
+  overflow-x:hidden;
+  -webkit-font-smoothing:antialiased;
+  -moz-osx-font-smoothing:grayscale;
 }
 
+body:before { 
+    content: ""; 
+    position: fixed; 
+    top: 0; 
+    left: 0; 
+    width: 100%; 
+    height: 100%; 
+    background: repeating-linear-gradient( transparent 0px, transparent 2px, rgba(47,47,85,1) 3px ); 
+    pointer-events: none; 
+}
+
+/* ensure content is above the scanlines layer */
+.site-content { 
+    height: 100vb;
+    position: relative; 
+    z-index: 2; 
+    padding-top: 24px;
+}
+
+/* ---------- GLOBAL SCANLINES (behind everything) ---------- */
+.crt-scanlines {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0;
+  opacity: 0.09;
+  background: repeating-linear-gradient(
+      to bottom,
+      rgba(255,255,255,0.03) 0px,
+      rgba(255,255,255,0.03) 2px,
+      rgba(0,0,0,0.12) 3px
+  );
+  mix-blend-mode: soft-light;
+  animation: scanline-sweep 6s linear infinite;
+}
+
+@keyframes scanline-sweep {
+  0% { transform: translateY(-100%); }
+  100% { transform: translateY(100%); }
+}
+
+/* ---------- CRT SCREEN (Barrel Distortion) ---------- */
+.crt-screen {
+  position: relative;
+  z-index: 1;
+  transform: perspective(900px) scale(1.03) rotateX(0.6deg);
+  overflow: visible;
+}
+
+/* curved glass highlight */
+.crt-screen::before {
+  content: "";
+  position: fixed;
+  pointer-events: none;
+  z-index: 2;
+  inset: 0;
+  background:
+    radial-gradient(ellipse at center,
+      rgba(255,255,255,0.08),
+      rgba(255,255,255,0) 40%)
+    ;
+  mix-blend-mode: overlay;
+}
+
+/* dark vignette edges */
+.crt-screen::after {
+  content: "";
+  position: fixed;
+  pointer-events: none;
+  z-index: 2;
+  inset: 0;
+  background: radial-gradient(circle at center,
+      rgba(0,0,0,0) 55%,
+      rgba(0,0,0,0.35) 100%);
+}
+
+/* ---------- HERO / CRT TEXT GLOW ---------- */
 .crt-text {
-    color: #ff00ff33; /* cor clara azulada */
-    text-shadow: 
-        0 0 5px #2C6693,
-        0 0 10px #2C6693,
-        0 0 20px #2C6693,
-        0 0 40px #2C6693;
+  position: relative;
+  color: var(--ghost-color); /* faint main color */
+  white-space: nowrap;
+  display:inline-block;
+  text-shadow:
+     0 0 5px var(--glow),
+     0 0 10px var(--glow),
+     0 0 20px var(--glow),
+     0 0 40px var(--glow);
+  margin: .25rem 0;
 }
 
-.crt-text {
-    position: relative;
+/* the solid visible copy (shifted) */
+.crt-text::after{
+  content: attr(data-text);
+  position: absolute;
+  left: 0; top: 0;
+  color: var(--crt-cyan);
+  transform: translate(3px, 0);
+  pointer-events: none;
+  text-shadow: none;
 }
 
-.crt-text::after {
-    content: attr(data-text);
-    position: absolute;
-    top: 0;
-    left: 0;
-    color: #B4E2F2;
-    text-shadow: none;
-    transform: translate(2px, 0);
-    pointer-events: none;
+/* ---------- NAV: stable baseline + hover effects ---------- */
+
+/* ensure nav elements never reflow on hover */
+.crt-hover {
+  display: inline-block;
+  vertical-align: middle;
+  line-height: 1;               /* stable line height */
+  padding: .25rem .35rem;       /* consistent box size — important */
+  color: var(--crt-cyan) !important;
+  text-decoration: none;
+  transition: color .18s ease, text-shadow .25s ease, transform .12s ease;
+  position: relative;
+  -webkit-font-smoothing: subpixel-antialiased;
 }
+
+/* base container for hover special behaviour */
+.crt-hover { position: relative; }
+
+/* lock the pseudo elements so they never influence layout */
+.crt-hover::before,
+.crt-hover::after {
+  content: attr(data-text);
+  position: absolute;
+  top: 50%;
+  left: 0;
+  transform: translateY(-50%);
+  width: 100%;
+  height: auto;
+  white-space: nowrap;
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity .18s ease, transform .18s ease;
+  text-rendering: optimizeLegibility;
+}
+
+/* red layer (left) — chromatic aberration */
+.crt-hover::before {
+  color: rgba(255,40,40,0.75);
+  text-shadow: none;
+  mix-blend-mode: screen;
+}
+
+/* cyan bright layer (right) — main glow */
+.crt-hover::after {
+  color: var(--crt-cyan);
+  text-shadow:
+     0 0 6px var(--glow),
+     0 0 12px var(--glow);
+  mix-blend-mode: screen;
+}
+
+/* on hover — show the layers and slightly offset the main text */
+.crt-hover:hover {
+  color: var(--ghost-color) !important;
+  text-shadow:
+     0 0 5px var(--glow),
+     0 0 10px var(--glow),
+     0 0 20px var(--glow);
+}
+
+/* reveal chroma layers */
+.crt-hover:hover::before {
+  opacity: 1;
+  transform: translate(-2px, -50%) rotateZ(-0.3deg);
+}
+.crt-hover:hover::after {
+  opacity: 1;
+  transform: translate(2px, -50%) rotateZ(0.3deg);
+}
+
+/* terminal blinking cursor on hover */
+.crt-hover .cursor {
+  display:inline-block;
+  margin-left: .32rem;
+  width: .5ch;
+  opacity: 0;
+  transform: translateY(-10%);
+  transition: opacity .12s;
+  pointer-events: none;
+}
+.crt-hover:hover .cursor {
+  opacity:1;
+  animation: blink-caret 0.8s steps(2,end) infinite;
+}
+@keyframes blink-caret { 50% { opacity: 0; } 100% { opacity: 1; } }
+
+/* ---------- small responsive tweaks ---------- */
+@media (max-width:575px){
+  .crt-text, .crt-hover { font-size: 18px; }
+}
+
+/* ---------- utility for demo spacing ---------- */
+.header-hero { padding: 4rem 0; text-align:center; z-index:2; position:relative; }
+.container { z-index:2; position:relative; }
+
+/* nice card look for projects (keeps them above scanlines) */
+.card { background: rgba(0,0,0,0.55); border: 1px solid rgba(255,255,255,0.03); color:var(--crt-cyan); }

@@ -11,17 +11,90 @@
 </head>
 
 <body>
-  <!-- Navbar -->
-  <nav class="navbar navbar-expand-lg">
-    <div class="container"> <a class="navbar-brand fw-bold d-flex align-items-center gap-2" href="#">
+  <!-- scanlines (behind everything) -->
+  <div class="crt-scanlines"></div>
 
+  <!-- CRT SCREEN wrapper (applies curved look) -->
+  <div class="crt-screen site-content">
 
+    <!-- NAV -->
+    <nav class="navbar navbar-expand-lg navbar-dark">
+      <div class="container">
+        <a class="crt-hover" data-text="Isabela Jastrombek" href="#">Isabela Jastrombek</a>
 
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#nav">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div id="nav" class="collapse navbar-collapse">
+          <ul class="navbar-nav ms-auto">
+            <li class="nav-item">
+              <a class="crt-hover" data-text="About" href="#about">About</a>
+            </li>
+            <li class="nav-item">
+              <a class="crt-hover" data-text="Work" href="#work">Work</a>
+            </li>
+            <li class="nav-item">
+              <a class="crt-hover" data-text="Contact" href="#contact">Contact</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+    <!-- HERO -->
+    <header class="header-hero">
+      <div class="container">
+        <h1 class="crt-text" data-text="Hi, I'm Isabela.">Hi, I'm Isabela.</h1>
+        <br>
+        <p class="lead crt-text" data-text="iOS Developer · Designer · Creative Builder">
+          iOS Developer · Designer · Creative Builder
+        </p>
+      </div>
+    </header>
+    <div class="container">
+      <div class="row align-items-center">
+        <div class="col-md-6">
+          <h2 class="fw-bold mb-3">About Me</h2>
+          <p> I'm an iOS developer passionate about creating clean, elegant and intuitive applications. I love
+            experimenting with design, animations and building user‑focused experiences. </p>
+        </div>
+        <div class="col-md-6 text-center">
+          <img src="https://via.placeholder.com/350x250" class="img-fluid rounded" alt="Portfolio image" />
+        </div>
+      </div>
     </div>
-  </nav>
 
-  <h1 class="crt-text" data-text="The world you are looking for no longer exists.">
-    The world you are looking for no longer exists.</h1>
+    <!-- SAMPLE WORK -->
+    <section id="work" class="py-5">
+      <div class="container">
+        <h2 class="text-center mb-4">My Work</h2>
+        <div class="row g-4">
+          <div class="col-md-4">
+            <div class="card p-3 h-100">
+              <h5>Project A</h5>
+              <p>Short description</p>
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div class="card p-3 h-100">
+              <h5>Project B</h5>
+              <p>Short description</p>
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div class="card p-3 h-100">
+              <h5>Project C</h5>
+              <p>Short description</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </div> <!-- end crt-screen -->
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 
 </html>
