@@ -1,0 +1,49 @@
+@font-face {
+  font-family: 'big-shot';
+  src: url('fonts/big-shot.ttf'); 
+}
+
+body {
+    scroll-behavior: smooth;
+    font-family: 'big-shot', 'VT323', monospace;
+    color: #B4E2F2;
+    background-color: #060708;
+}
+
+body:before {
+    content: "";
+    position: fixed;
+    top: 0; left: 0;
+    width: 100%;
+    height: 100%;
+    background: repeating-linear-gradient(
+        transparent 0px,
+        transparent 2px,
+        rgba(47,47,85,1) 3px
+    );
+    pointer-events: none;
+}
+
+.crt-text {
+    color: #ff00ff33; /* cor clara azulada */
+    text-shadow: 
+        0 0 5px #2C6693,
+        0 0 10px #2C6693,
+        0 0 20px #2C6693,
+        0 0 40px #2C6693;
+}
+
+.crt-text {
+    position: relative;
+}
+
+.crt-text::after {
+    content: attr(data-text);
+    position: absolute;
+    top: 0;
+    left: 0;
+    color: #B4E2F2;
+    text-shadow: none;
+    transform: translate(2px, 0);
+    pointer-events: none;
+}
