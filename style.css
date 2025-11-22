@@ -199,11 +199,11 @@ li {padding-left: 6vb;}
 .padded {margin-left: 18vb; margin-right: 18vb;}
 
 .dashed {
-  color: rgba(180, 226, 242, 0.8);
+  color: rgba(180, 226, 242, 0.6);
   border: 2px dashed;
 }
 
 .dashed-bottom {
-  color: rgba(180, 226, 242, 0.8);
+  color: rgba(180, 226, 242, 0.6);
   border-bottom: 2px dashed;
 }
