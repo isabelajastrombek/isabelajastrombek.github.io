@@ -68,7 +68,7 @@ body:before {
   max-width: 100%;
   pointer-events: none;
   user-select: none;
-  transform: translateY(40px);
+  transform: translateY(80px);
 }
 
 @keyframes crt-ghost-wobble {
@@ -127,61 +127,40 @@ h2.crt-text {
      0 0 5px var(--glow);
 }
 
-/* NAV: hover effects >>>>change hereeee*/
+/* NAV: hover effects */
+li {padding-left: 6vb;}
+
 .crt-hover {
   display: inline-block;
-  line-height: 1;
   padding: .25rem .35rem;
-  color: var(--crt-cyan) !important;
+  color: var(--crt-cyan);
   text-decoration: none;
   transition: color .18s ease, text-shadow .25s ease, transform .12s ease;
   position: relative;
-  -webkit-font-smoothing: subpixel-antialiased;
-}
-
-.crt-hover::before,
-.crt-hover::after {
-  content: attr(data-text);
-  position: absolute;
-  top: 50%;
-  left: 0;
-  transform: translateY(-50%);
-  width: 100%;
-  height: auto;
-  white-space: nowrap;
-  pointer-events: none;
-  opacity: 0;
-  transition: opacity .18s ease, transform .18s ease;
 }
 
 .crt-hover::before {
-  color: rgba(255,40,40,0.75);
-  mix-blend-mode: screen;
-}
-
-.crt-hover::after {
+  content: "> ";
+  position: absolute;
+  left: -6px;    
+  top: 50%;
+  transform: translateY(-50%);
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity .18s ease, transform .18s ease;
   color: var(--crt-cyan);
   text-shadow:
-     0 0 6px var(--glow),
-     0 0 12px var(--glow);
-  mix-blend-mode: screen;
-}
-
-.crt-hover:hover {
-  color: var(--ghost-color) !important;
-  text-shadow:
+     0 0 2px var(--glow),
      0 0 5px var(--glow),
      0 0 10px var(--glow),
      0 0 20px var(--glow);
 }
+
 .crt-hover:hover::before {
   opacity: 1;
-  transform: translate(-2px, -50%) rotateZ(-0.3deg);
+  transform: translateY(-50%) translateX(-2px);
 }
-.crt-hover:hover::after {
-  opacity: 1;
-  transform: translate(2px, -50%) rotateZ(0.3deg);
-}
+
 
 /* responsive tweaks */
 @media (max-width:575px){
@@ -194,9 +173,8 @@ h2.crt-text {
 
 /* card */
 .card { 
-  background: rgba(0,0,0,0.55); 
-  border: 2px dashed rgba(255,255,255,0.03); 
-  color:var(--crt-cyan); }
+  background: none;
+}
 
 /* screens */
 
@@ -218,7 +196,10 @@ h2.crt-text {
   font-size: 10px;   /* Ajuste conforme necessário */ 
 }
 
+.padded {margin-left: 20vb; margin-right: 20vb;}
+
 .dashed {
+  color: var(--crt-cyan);
   border: 2px dashed;
   text-shadow:
      0 0 2px var(--glow),
@@ -226,3 +207,4 @@ h2.crt-text {
      0 0 10px var(--glow),
      0 0 20px var(--glow);
 }
+
