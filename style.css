@@ -1,4 +1,4 @@
-/* ---------- FONTS & BASIC ---------- */
+/* page base */
 @font-face{
   font-family: 'big-shot';
   src: url('fonts/big-shot.ttf') format('truetype');
@@ -13,7 +13,6 @@
   --glow: #2C6693;
 }
 
-/* page base */
 html, body { height: 100%; margin: 0; padding: 0; }
 
 body{
@@ -25,7 +24,7 @@ body{
   -moz-osx-font-smoothing: grayscale;
 }
 
-/* subtle repeating background */
+/* bg */
 body:before {
   content: "";
   position: fixed;
@@ -36,28 +35,27 @@ body:before {
   z-index: 0;
 }
 
-/* ensure content is above the scanlines layer */
+/* content */
 .site-content {
   height: 100vh; 
   position: relative;
   z-index: 3;
   padding-top: 24px;
+  
 }
 
 
-/* camada fantasma atrás do conteúdo */
-/* camada fantasma (atrás do conteúdo, porém acima do fundo/scanlines) */
+/* CRT ghosting */
 .crt-ghost-layer {
   position: fixed;
   inset: 0;
-  z-index: 2;               /* abaixo do site-content (ver abaixo) */
+  z-index: 2;               
   pointer-events: none;
   overflow: hidden;
   display: flex;
   align-items: flex-start;
   justify-content: center;
 
-  /* aparência do ghost */
   opacity: 0.10;
   filter: blur(3px) saturate(1.1);
   mix-blend-mode: screen;
@@ -65,23 +63,21 @@ body:before {
   animation: crt-ghost-wobble 0.12s infinite alternate linear;
 }
 
-/* a cópia inserida terá esta classe */
 .crt-ghost-layer .ghost-clone {
   width: 100%;
   max-width: 100%;
   pointer-events: none;
   user-select: none;
-  transform: translateY(18px);
+  transform: translateY(40px);
 }
 
-/* animação leve */
 @keyframes crt-ghost-wobble {
   0%   { transform: translate(4px, 1px); }
   100% { transform: translate(1px, -1px); }
 }
 
 
-/* ---------- CRT SCREEN (Barrel Distortion) ---------- */
+/* CRT screen distortion */
 .crt-screen {
   position: relative;
   z-index: 2;
@@ -89,7 +85,7 @@ body:before {
   overflow: visible;
 }
 
-/* curved glass highlight */
+/* glass highlight */
 .crt-screen::before {
   content: "";
   position: fixed;
@@ -98,12 +94,12 @@ body:before {
   inset: 0;
   background:
     radial-gradient(ellipse at center,
-      rgba(255,255,255,0.08),
-      rgba(255,255,255,0) 40%);
+      rgba(180, 226, 242,0.08),
+      rgba(180, 226, 242, 0) 90%);
   mix-blend-mode: overlay;
 }
 
-/* dark vignette edges */
+/* vignette */
 .crt-screen::after {
   content: "";
   position: fixed;
@@ -115,30 +111,23 @@ body:before {
       rgba(0,0,0,0.35) 100%);
 }
 
-/* ---------- HERO / CRT TEXT GLOW ---------- */
+/* CRT text */
 .crt-text {
-  position: relative;
-  color: var(--ghost-color);
-  white-space: nowrap;
-  display:inline-block;
+  color: var(--crt-cyan);
   text-shadow:
+     0 0 2px var(--glow),
      0 0 5px var(--glow),
      0 0 10px var(--glow),
-     0 0 20px var(--glow),
-     0 0 40px var(--glow);
-  margin: .25rem 0;
+     0 0 20px var(--glow);
+}
+h2.crt-text {
+  text-shadow:
+     0 0 1px var(--glow),
+     0 0 2px var(--glow),
+     0 0 5px var(--glow);
 }
 
-.crt-text::after{
-  content: attr(data-text);
-  position: absolute;
-  left: 0; top: 0;
-  color: var(--crt-cyan);
-  transform: translate(3px, 0);
-  pointer-events: none;
-}
-
-/* ---------- NAV: hover effects (mantive) ---------- */
+/* NAV: hover effects >>>>change hereeee*/
 .crt-hover {
   display: inline-block;
   line-height: 1;
@@ -194,29 +183,46 @@ body:before {
   transform: translate(2px, -50%) rotateZ(0.3deg);
 }
 
-/* ---------- small responsive tweaks ---------- */
+/* responsive tweaks */
 @media (max-width:575px){
   .crt-text, .crt-hover { font-size: 18px; }
 }
 
-/* ---------- utility for demo spacing ---------- */
+/* utility for demo spacing */
 .header-hero { padding: 4rem 0; text-align:center; z-index:3; position:relative; }
 .container { z-index:3; position:relative; }
 
-/* nice card look for projects (keeps them above scanlines) */
-.card { background: rgba(0,0,0,0.55); border: 1px solid rgba(255,255,255,0.03); color:var(--crt-cyan); }
+/* card */
+.card { 
+  background: rgba(0,0,0,0.55); 
+  border: 2px dashed rgba(255,255,255,0.03); 
+  color:var(--crt-cyan); }
 
-/* ---------- APP SCREENS (corrigido) ---------- */
+/* screens */
 
-
-/* se você quiser limitar scroll interno e for igual height do conteúdo, troque overflow para hidden */
+/* limitar scroll interno e >>> troque overflow para hidden */
 .page-section {
   display: none;
-  height: 100vh; /* ocupa a tela toda */
-  overflow-y: auto; /* caso precise rolar dentro */
+  height: 100vh;
+  overflow-y: auto;
 }
 
 .page-section.active {
   display: block;
 }
 
+/* ASCII */
+.ascii {
+  margin: 0;
+  font-family: "Courier New", monospace;
+  font-size: 10px;   /* Ajuste conforme necessário */ 
+}
+
+.dashed {
+  border: 2px dashed;
+  text-shadow:
+     0 0 2px var(--glow),
+     0 0 5px var(--glow),
+     0 0 10px var(--glow),
+     0 0 20px var(--glow);
+}
