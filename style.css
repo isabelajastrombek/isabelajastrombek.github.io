@@ -107,8 +107,8 @@ body:before {
   z-index: 4;
   inset: 0;
   background: radial-gradient(circle at center,
-      rgba(0,0,0,0) 55%,
-      rgba(0,0,0,0.35) 100%);
+      rgba(0,0,0,0) 30%,
+      rgba(0,0,0,0.4) 100%);
 }
 
 /* CRT text */
@@ -168,7 +168,7 @@ li {padding-left: 6vb;}
 }
 
 /* utility for demo spacing */
-.header-hero { padding: 4rem 0; text-align:center; z-index:3; position:relative; }
+.header-hero { padding: 4rem 0; position:relative; }
 .container { z-index:3; position:relative; padding-bottom: 26px;}
 
 /* card */
@@ -193,7 +193,7 @@ li {padding-left: 6vb;}
 /* ASCII */
 .ascii {
   /* margin: 0; */
-  font-size: 10px;   /* Ajuste conforme necessário */ 
+  font-size: 6px;   /* Ajuste conforme necessário */ 
 }
 
 .padded {margin-left: 18vb; margin-right: 18vb;}
@@ -201,9 +201,110 @@ li {padding-left: 6vb;}
 .dashed {
   color: rgba(180, 226, 242, 0.6);
   border: 2px dashed;
+  background: rgba(0, 0, 0, 0.3);
 }
 
 .dashed-bottom {
   color: rgba(180, 226, 242, 0.6);
   border-bottom: 2px dashed;
+}
+
+
+
+/* container principal */
+.projects-carousel {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  width: 100%;
+}
+
+/* faixa que desliza */
+.projects-track {
+  display: flex;
+  gap: 2rem;
+  overflow-x: auto;  /* obrigatório */
+  scroll-behavior: smooth;
+  scroll-snap-type: x mandatory; /* se quiser snap */
+}
+
+.projects-track::-webkit-scrollbar {
+  display: none;               /* Chrome/Safari */
+}
+
+.projects-track::-webkit-scrollbar-thumb {
+  background: #B4E2F2;
+}
+
+/* card */
+.projects-card {
+  min-width: 260px;
+  max-width: 260px;
+  cursor: pointer;
+  flex-shrink: 0;
+  flex: 0 0 auto;     /* IMPORTANTÍSSIMO */
+  scroll-snap-align: start;
+  /* background: rgba(0, 0, 0, 0.3); */
+}
+
+/* thumbnail */
+.project-thumb {
+  width: 100%;
+  height: 150px;
+  object-fit: cover;
+  margin-bottom: 10px;
+  border: 1px solid #B4E2F2;
+}
+
+/* data */
+.project-date {
+  font-size: 0.9rem;
+  opacity: 0.7;
+}
+
+/* icons */
+.tech-icons {
+  display: flex;
+  gap: 8px;
+  margin-top: 8px;
+}
+
+.tech-icons img {
+  width: 22px;
+  height: 22px;
+  filter: drop-shadow(0 0 5px #B4E2F2);
+}
+
+/* BOTÕES < e > */
+.carousel-btn {
+  background: transparent;
+  border: 1px solid #B4E2F2;
+  color: #B4E2F2;
+  padding: 6px 12px;
+  font-size: 1.4rem;
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+.carousel-btn:hover {
+  background: #B4E2F255;
+}
+
+.left-btn {
+  margin-right: 5px;
+}
+
+.right-btn {
+  margin-left: 5px;
+}
+
+
+.back-btn {
+  border: none;
+  background: none;
+  color: var(--crt-cyan);
+  padding: 6px 12px;
+  margin-bottom: 12px;
+  font-size: 20px;
 }
