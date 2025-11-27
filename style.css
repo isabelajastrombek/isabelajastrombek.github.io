@@ -201,7 +201,7 @@ li {padding-left: 6vb;}
 .dashed {
   color: rgba(180, 226, 242, 0.6);
   border: 2px dashed;
-  background: rgba(0, 0, 0, 0.3);
+  
 }
 
 .dashed-bottom {
@@ -213,17 +213,20 @@ li {padding-left: 6vb;}
 
 /* container principal */
 .projects-carousel {
+  margin-top: 40px;
   position: relative;
   display: flex;
   align-items: center;
   gap: 1rem;
   width: 100%;
+  overflow: hidden; /* importante */
+  position: relative;
 }
 
 /* faixa que desliza */
 .projects-track {
   display: flex;
-  gap: 2rem;
+  gap: 3rem;
   overflow-x: auto;  /* obrigatório */
   scroll-behavior: smooth;
   scroll-snap-type: x mandatory; /* se quiser snap */
@@ -237,25 +240,6 @@ li {padding-left: 6vb;}
   background: #B4E2F2;
 }
 
-/* card */
-.projects-card {
-  min-width: 260px;
-  max-width: 260px;
-  cursor: pointer;
-  flex-shrink: 0;
-  flex: 0 0 auto;     /* IMPORTANTÍSSIMO */
-  scroll-snap-align: start;
-  /* background: rgba(0, 0, 0, 0.3); */
-}
-
-/* thumbnail */
-.project-thumb {
-  width: 100%;
-  height: 150px;
-  object-fit: cover;
-  margin-bottom: 10px;
-  border: 1px solid #B4E2F2;
-}
 
 /* data */
 .project-date {
@@ -307,4 +291,52 @@ li {padding-left: 6vb;}
   padding: 6px 12px;
   margin-bottom: 12px;
   font-size: 20px;
+  position: relative;
+  z-index: 4;
 }
+
+
+.projects-scroll {
+  display: flex;
+  gap: 2rem;
+  overflow-x: auto;
+  padding: 0 1rem;
+  scroll-behavior: smooth;
+  scroll-snap-type: x mandatory;
+}
+
+.projects-scroll::-webkit-scrollbar {
+  display: none;
+}
+
+.project-card {
+  min-width: 320px;
+  padding: 20px;
+  border: 2px dashed #7fc7ff;
+  scroll-snap-align: start;
+  background: rgba(0, 0, 0, 0.3);
+}
+
+.project-card .thumb {
+  width: 100%;
+  height: 180px;
+  border: 2px solid #b4e0ff;
+  margin-bottom: 10px;
+}
+
+/* arrows */
+.arrow {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 42px;
+  height: 42px;
+  border: 2px solid #7fc7ff;
+  background: rgba(0,0,0,0.2);
+  color: #7fc7ff;
+  font-size: 24px;
+  cursor: pointer;
+}
+
+.arrow.left { left: 15px; }
+.arrow.right { right: 15px; }
