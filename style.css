@@ -49,7 +49,7 @@ body:before {
 .crt-ghost-layer {
   position: fixed;
   inset: 0;
-  z-index: 2;               
+  z-index: 1 !important;               
   pointer-events: none;
   overflow: hidden;
   display: flex;
@@ -80,7 +80,7 @@ body:before {
 /* CRT screen distortion */
 .crt-screen {
   position: relative;
-  z-index: 2;
+  z-index: 3;
   transform: perspective(900px) scale(1.03) rotateX(0.6deg);
   overflow: visible;
 }
@@ -171,11 +171,6 @@ li {padding-left: 6vb;}
 .header-hero { padding: 4rem 0; position:relative; }
 .container { z-index:3; position:relative; padding-bottom: 26px;}
 
-/* card */
-.card { 
-  background: none;
-  border-radius: 0;
-}
 
 /* screens */
 
@@ -197,6 +192,7 @@ li {padding-left: 6vb;}
 }
 
 .padded {margin-left: 18vb; margin-right: 18vb;}
+.padded2 {margin: 16px;}
 
 .dashed {
   color: rgba(180, 226, 242, 0.6);
@@ -211,7 +207,7 @@ li {padding-left: 6vb;}
 
 
 
-/* container principal */
+/* projects */
 .projects-carousel {
   margin-top: 40px;
   position: relative;
@@ -221,66 +217,6 @@ li {padding-left: 6vb;}
   width: 100%;
   overflow: hidden; /* importante */
   position: relative;
-}
-
-/* faixa que desliza */
-.projects-track {
-  display: flex;
-  gap: 3rem;
-  overflow-x: auto;  /* obrigatório */
-  scroll-behavior: smooth;
-  scroll-snap-type: x mandatory; /* se quiser snap */
-}
-
-.projects-track::-webkit-scrollbar {
-  display: none;               /* Chrome/Safari */
-}
-
-.projects-track::-webkit-scrollbar-thumb {
-  background: #B4E2F2;
-}
-
-
-/* data */
-.project-date {
-  font-size: 0.9rem;
-  opacity: 0.7;
-}
-
-/* icons */
-.tech-icons {
-  display: flex;
-  gap: 8px;
-  margin-top: 8px;
-}
-
-.tech-icons img {
-  width: 22px;
-  height: 22px;
-  filter: drop-shadow(0 0 5px #B4E2F2);
-}
-
-/* BOTÕES < e > */
-.carousel-btn {
-  background: transparent;
-  border: 1px solid #B4E2F2;
-  color: #B4E2F2;
-  padding: 6px 12px;
-  font-size: 1.4rem;
-  cursor: pointer;
-  transition: 0.2s;
-}
-
-.carousel-btn:hover {
-  background: #B4E2F255;
-}
-
-.left-btn {
-  margin-right: 5px;
-}
-
-.right-btn {
-  margin-left: 5px;
 }
 
 
@@ -298,7 +234,7 @@ li {padding-left: 6vb;}
 
 .projects-scroll {
   display: flex;
-  gap: 2rem;
+  gap: 16px;
   overflow-x: auto;
   padding: 0 1rem;
   scroll-behavior: smooth;
@@ -310,11 +246,14 @@ li {padding-left: 6vb;}
 }
 
 .project-card {
-  min-width: 320px;
+  min-width: 400px;
   padding: 20px;
   border: 2px dashed #7fc7ff;
   scroll-snap-align: start;
   background: rgba(0, 0, 0, 0.3);
+  cursor: pointer;
+  position: relative;
+  z-index: 5;
 }
 
 .project-card .thumb {
@@ -322,21 +261,26 @@ li {padding-left: 6vb;}
   height: 180px;
   border: 2px solid #b4e0ff;
   margin-bottom: 10px;
+  object-fit: cover;     
+  object-position: center;
+  display: block;
 }
 
-/* arrows */
+/* buttons arrows */
 .arrow {
-  position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
-  width: 42px;
-  height: 42px;
+  position: relative;
+  margin: 6px;
+  height: 60px;
+  width: 60px;
   border: 2px solid #7fc7ff;
   background: rgba(0,0,0,0.2);
   color: #7fc7ff;
-  font-size: 24px;
+  font-size: 30px;
   cursor: pointer;
 }
 
-.arrow.left { left: 15px; }
-.arrow.right { right: 15px; }
+/* awesome font icons */
+i {
+  font-size: 22px;
+  color: var(--crt-cyan);
+}

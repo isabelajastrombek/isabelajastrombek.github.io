@@ -6,6 +6,7 @@
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <link href="https://fonts.googleapis.com/css2?family=VT323&display=swap" rel="stylesheet">
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
   <link rel="stylesheet" href="style.css" />
   <link rel="icon" href="assets/icon.svg" type="image/svg+xml">
   <title>Isabela Jastrombek | Portfolio</title>
@@ -47,58 +48,225 @@
     <!-- projects -->
     <section id="projects" class="page-section active">
       <div class="container crt-text py-5">
-        <h2 class="mb-4">My Projects</h2>
-
-        <!-- CARROSSEL -->
-
+        <h2 class="mb-4">Minhas Materias</h2>
 
         <div id="projects-list" class="projects-carousel position-relative">
 
-          <button class="arrow left" id="scrollLeft">‹</button>
-          <button class="arrow right" id="scrollRight">›</button>
+          <button class="arrow" id="scrollLeft">&lt;</button>
 
           <div class="projects-scroll" id="projectsScroll">
 
-            <div class="project-card ">
-              <div class="thumb"></div>
-              <h3>Project A</h3>
-              <p class="year">2024</p>
+            <div class="project-card" data-target="projectA">
+              <img src="assets/exc.png" alt="" class="thumb">
+              <h3>Experiência Criativa: Navegando na Computação</h3>
+              <i class="fa-brands fa-java"></i>
+              <i class="fa-brands fa-html5"></i>
+              <i class="fa-brands fa-css3-alt"></i>
+              <i class="fa-brands fa-js"></i>
+              <i class="fa-brands fa-bootstrap"></i>
+              <i class="fa-solid fa-gamepad"></i>
+              <i class="fa-brands fa-git"></i>
+              <p>2025</p>
+
             </div>
 
-            <div class="project-card">
-              <div class="thumb"></div>
-              <h3>Project B</h3>
-              <p class="year">2023</p>
+            <div class="project-card" data-target="projectB">
+              <img src="assets/fsc.png" alt="" class="thumb">
+              <h3>Fundamentos de Sistemas Ciberfísicos</h3>
+              <p>2025</p>
+              <i class="fa-brands fa-python"></i>
+              <i class="fa-solid fa-microchip"></i>
+              <i class="fa-solid fa-code"></i>
+              <i class="fa-solid fa-terminal"></i>
+              <i class="fa-brands fa-git"></i>
             </div>
 
-            <div class="project-card">
-              <div class="thumb"></div>
-              <h3>Project C</h3>
-              <p class="year">2022</p>
+            <div class="project-card" data-target="projectC">
+              <img src="assets/ra.png" alt="" class="thumb">
+              <h3>Raciocínio Algorítmico</h3> <br>
+              <p>2025</p>
+              <i class="fa-brands fa-python"></i>
+              <i class="fa-solid fa-code"></i>
+              <i class="fa-solid fa-terminal"></i>
+              <i class="fa-brands fa-git"></i>
             </div>
 
-            <div class="project-card">
-              <div class="thumb"></div>
-              <h3>Project A</h3>
-              <p class="year">2024</p>
+            <div class="project-card" data-target="projectD">
+              <img src="assets/rplm.png" alt="" class="thumb">
+              <h3>Resolução de Problemas com Lógica Matemática</h3>
+              <p>2025</p>
+              <i class="fa-solid fa-calculator"></i>
+              <i class="fa-solid fa-pen"></i>
             </div>
 
-            <div class="project-card">
-              <div class="thumb"></div>
-              <h3>Project B</h3>
-              <p class="year">2023</p>
+            <div class="project-card" data-target="projectE">
+              <img src="assets/f.png" alt="" class="thumb">
+              <h3>Filosofia</h3> <br> <br>
+              <p>2025</p>
+              <i class="fa-solid fa-pen"></i>
             </div>
+
 
           </div>
 
-          <!-- DISPLAY DO PROJETO -->
-          <div id="projects-display" class="dashed p-4" style="display:none;">
-            <div class="text-end">
-              <button id="projects-back" class="back-btn crt-hover crt-text">X</button>
+          <button class="arrow" id="scrollRight">&gt;</button>
+        </div>
+
+        <!-- PROJECT -->
+        <div id="projects-display" class="" style="display:none;">
+          <div class="text-end">
+            <button id="projects-back" class="back-btn crt-hover crt-text">X</button>
+          </div>
+          <div id="projects-content"></div>
+        </div>
+
+        <!-- PROJECT DATA -->
+        <div id="project-content" style="display:none;">
+
+          <div id="projectA">
+            <h3>Experiência Criativa: Navegando na Computação</h3>
+            <i class="fa-brands fa-java"></i>
+            <i class="fa-brands fa-html5"></i>
+            <i class="fa-brands fa-css3-alt"></i>
+            <i class="fa-brands fa-js"></i>
+            <i class="fa-brands fa-bootstrap"></i>
+            <i class="fa-solid fa-gamepad"></i>
+            <i class="fa-brands fa-git"></i>
+            <p>2025</p>
+            <br>
+            <div class="dashed">
+              <p class="padded2">A disciplina "Experiência Criativa: Navegando na Computação" é destinada a estudantes
+                iniciantes em Ciência da Computação e tem como objetivo introduzir os fundamentos da computação, com
+                ênfase no desenvolvimento de software e no uso de ferramentas de programação visual e ambientes
+                integrados de desenvolvimento (IDE). Durante o semestre, os alunos são desafiados a trabalhar em equipe,
+                desenvolvendo habilidades sociocomportamentais como comunicação, colaboração, pensamento crítico e
+                autonomia. As atividades incluem a criação de softwares simples, como jogos e aplicativos multimídia,
+                além do estudo de temas como Inteligência Artificial, banco de dados, GitHub e blockchain. A disciplina
+                também envolve aprodução de um portfólio acadêmico-profissional.</p>
             </div>
-            <div id="projects-content"></div>
+
+            <div class="project-meta">
+              <div class="project-tech">
+                <img src="assets/icons/python.svg">
+                <img src="assets/icons/flask.svg">
+              </div>
+            </div>
+
+            <img src="assets/projectA-thumb.png" class="project-full-image">
           </div>
 
+
+          <div id="projectB">
+            <h3>Fundamentos de Sistemas Ciberfísicos</h3>
+            <i class="fa-brands fa-python"></i>
+            <i class="fa-solid fa-microchip"></i>
+            <i class="fa-solid fa-code"></i>
+            <i class="fa-solid fa-terminal"></i>
+            <i class="fa-brands fa-git"></i>
+            <p>2025</p>
+            <br>
+            <div class="dashed">
+              <p class="padded2">A disciplina "Fundamentos de Sistemas Ciber-Físicos" é voltada para acadêmicos do 1º
+                período dos cursos de Bacharelado em Sistemas de Informação, Ciência da Computação, Engenharia de
+                Software e Cibersegurança. Seu foco é a introdução aos sistemas microprocessados, comunicação de dados e
+                a aplicação desses conhecimentos em Sistemas Ciber-Físicos e na Internet das Coisas (IoT). Os estudantes
+                aprendem a integrar arquiteturas, redes e sistemas operacionais, sendo capacitados a resolver problemas
+                estruturados, combinando hardware e software para interagir com o mundo físico. Não há pré-requisitos
+                para a disciplina, que serve de base para outras matérias mais avançadas, como Conectividade e
+                Performance em Sistemas Ciber-físicos.</p>
+            </div>
+
+            <div class="project-meta">
+              <div class="project-tech">
+                <img src="assets/icons/python.svg">
+                <img src="assets/icons/flask.svg">
+              </div>
+            </div>
+
+            <img src="assets/projectA-thumb.png" class="project-full-image">
+          </div>
+
+          <div id="projectC">
+            <h3>Raciocínio Algorítmico</h3>
+            <i class="fa-brands fa-python"></i>
+            <i class="fa-solid fa-code"></i>
+            <i class="fa-solid fa-terminal"></i>
+            <i class="fa-brands fa-git"></i>
+            <p>2025</p>
+            <br>
+            <div class="dashed">
+              <p class="padded2">A disciplina "Raciocínio Algorítmico" tem como objetivo o desenvolvimento do pensamento
+                computacional por meio da construção de algoritmos. Durante o semestre, os estudantes aprendem a
+                manipular variáveis, expressões lógico-aritmético-relacionais, estruturas de controle, estruturas de
+                dados homogêneas e funções para resolver problemas computacionais. Ao final da disciplina, o aluno será
+                capaz de implementar programas para problemas de baixa complexidade usando uma linguagem de programação,
+                com foco na autorregulação e no trabalho cooperativo. Não possui pré-requisitos e é fundamental para
+                disciplinas avançadas em Ciência da Computação, como Programação Imperativa, Programação Web,
+                Programação Orientada a Objetos, e Complexidade de Algoritmos.</p>
+            </div>
+
+            <div class="project-meta">
+              <div class="project-tech">
+                <img src="assets/icons/python.svg">
+                <img src="assets/icons/flask.svg">
+              </div>
+            </div>
+
+            <img src="assets/projectA-thumb.png" class="project-full-image">
+          </div>
+
+          <div id="projectD">
+            <h3>Resolução de Problemas com Lógica Matemática</h3>
+            <i class="fa-solid fa-calculator"></i>
+            <i class="fa-solid fa-pen"></i>
+            <p>2025</p>
+            <br>
+            <div class="dashed">
+              <p class="padded2">A disciplina aborda a lógica matemática aplicada à computação, capacitando estudantes
+                do 1º período de Ciência da Computação e Sistemas de Informação a modelar problemas reais por meio de
+                representações lógicas e métodos formais de dedução. Ao longo do curso, o aluno trabalha com cálculo
+                proposicional e cálculo de predicados, desenvolvendo habilidades para interpretar, manipular e aplicar
+                linguagem lógica na resolução de problemas estruturados. A disciplina exige conhecimentos prévios de
+                Raciocínio Algorítmico e serve como base para diversas áreas posteriores, incluindo programação,
+                matemática discreta, bancos de dados, arquitetura de computadores e web services.</p>
+            </div>
+
+            <div class="project-meta">
+              <div class="project-tech">
+                <img src="assets/icons/python.svg">
+                <img src="assets/icons/flask.svg">
+              </div>
+            </div>
+
+            <img src="assets/projectA-thumb.png" class="project-full-image">
+          </div>
+
+          <div id="projectE">
+            <h3>Filosofia</h3>
+            <i class="fa-solid fa-pen"></i>
+            <p>2025</p>
+            <br>
+            <div class="dashed">
+              <p class="padded2">A disciplina de Filosofia, destinada a estudantes de todos os cursos da universidade,
+                tem como objetivo estimular o ato de filosofar a partir dos princípios da graduação, como dedicação,
+                autonomia e senso crítico. Ao longo do semestre, os estudantes refletem sobre a condição humana nas
+                dimensões pessoal, acadêmica e profissional, desenvolvendo habilidades para transformar opiniões em
+                argumentos fundamentados. A disciplina permite ao aluno planejar seu percurso formativo e se posicionar
+                criticamente frente aos desafios da existência humana, abordando temas como universidade e aprendizagem,
+                tipos de conhecimento, liberdade, responsabilidade e o valor da filosofia. Ela é parte do Eixo de
+                Formação Humana da PUCPR e contribui para a formação integral dos estudantes, preparando-os para
+                intervir na sociedade de forma crítica, criativa e fundamentada em princípios éticos e filosóficos.</p>
+            </div>
+
+            <div class="project-meta">
+              <div class="project-tech">
+                <img src="assets/icons/python.svg">
+                <img src="assets/icons/flask.svg">
+              </div>
+            </div>
+
+            <img src="assets/projectA-thumb.png" class="project-full-image">
+          </div>
 
         </div>
     </section>
@@ -117,36 +285,56 @@
             </div>
             <div class="col-md-6 text-end">
               <pre class="ascii">
-
-                       .,,uod8B8bou,,.                             
-              ..,uod8BBBBBBBBBBBBBBBBRPFT?l!i:.                    
-         ,=m8BBBBBBBBBBBBBBBRPFT?!||||||||||||||                   
-         !...:!TVBBBRPFT||||||||||!!^^""'   ||||                   
-         !.......:!?|||||!!^^""'            ||||                   
-         !.........||||                     ||||                   
-         !.........||||  ##                 ||||                   
-         !.........||||                     ||||                   
-         !.........||||                     ||||                   
-         !.........||||                     ||||                   
-         !.........||||                     ||||                   
-         `.........||||                    ,||||                   
-          .;.......||||               _.-!!|||||                   
-   .,uodWBBBBb.....||||       _.-!!|||||||||!:'                    
-!YBBBBBBBBBBBBBBb..!|||:..-!!|||||||!iof68BBBBBb....               
-!..YBBBBBBBBBBBBBBb!!||||||||!iof68BBBBBBRPFT?!::   `.             
-!....YBBBBBBBBBBBBBBbaaitf68BBBBBBRPFT?!:::::::::     `.           
-!......YBBBBBBBBBBBBBBBBBBBRPFT?!::::::;:!^"`;:::       `.         
-!........YBBBBBBBBBBRPFT?!::::::::::^''...::::::;         iBBbo.   
-`..........YBRPFT?!::::::::::::::::::::::::;iof68bo.      WBBBBbo. 
-  `..........:::::::::::::::::::::::;iof688888888888b.     `YBBBP^'
-    `........::::::::::::::::;iof688888888888888888888b.     `     
-      `......:::::::::;iof688888888888888888888888888888b.         
-        `....:::;iof688888888888888888888888888888888899fT!        
-          `..::!8888888888888888888888888888888899fT|!^"'          
-            `' !!988888888888888888888888899fT|!^"'                
-                `!!8888888888888888899fT|!^"'                      
-                  `!988888888899fT|!^"'                            
-                    `!9899fT|!^"'                                  
+##########################################----......              ..################################
+######################################mm--....          --..      ....##############################
+####################################mm----              ..--        ....@@##########################
+##################################@@--..                --::..      ......##########################
+##################################--..--..      ..  ..++MMMM++    ....    --########################
+################################++--..    ..----  ::MM@@@@@@@@++..  ....  ..++######################
+############################@@mm--..    ..::--  ++@@########@@@@mm::......  --######################
+##########################@@mm--      ..++..--++@@############@@@@MM--      ..::####################
+########################@@mm++..    ..::--mm--@@################@@MMmm        ..####################
+######################MMMMmm..      ----::--@@##################@@@@MM..        ::##################
+####################@@MMMM::..    --..::mm@@@@##################@@@@mm::        ..MM################
+####################MMmm::::..--  ..--MM@@mmmm::mm@@############@@@@MM++        ..@@################
+##################@@mmmmMM::------::..::MMMMMM@@mm  ..MM@@####@@@@@@MM++        ..::################
+####################mmmm##--::mm--mm@@++@@MM::++::--::::@@##@@MMMMMMmm++--        --@@##############
+##################mm@@##::--..------@@MM++..MM..  --++mm@@@@mm..    ....--        --@@##############
+##################@@####++::..++::##@@MM@@MMMM++++::::MMMMMM----....::--        ..--MM##############
+################@@MM####::....++@@####@@@@@@MMmm++++MM++mm..::      ....          --MM##############
+##################@@##mm--  ::@@######@@####@@@@@@@@##mm##::::++::++              ..--##############
+################@@##MMmm--..  mm########MM@@@@@@####--####++mmmm::::..--  ..      ..--####@@########
+####################++--        ############mm++mm@@######mmMMMMmmmm++++          ..--@@############
+##################@@::--        ##############@@##########MM::@@@@@@mm::            ..--++##########
+##################++::..        ############@@############++@@@@--MMmm++          ..--mmMM++########
+################++++--....      ########################++++@@##@@@@MM--            --MM@@####mm####
+##############mm++mm----..      @@######################MMMM@@@@@@@@mm              ::--############
+############++##mmmm::--....    --##############@@######@@MMmmMMmmmm--          ----  --############
+##########++mm##++::::--....      @@################@@mm::....@@MM::              ::@@--##@@########
+########mmMM##::++--::::..          ##################@@MM++@@@@mm--              --@@--############
+########MMmm--::----::----....      mm################@@++mmMM++--                  ..--############
+######MM++::::----::--::--    ..      MM##############@@mm++++--                      ..--::@@######
+######++::------::::::--..--    ....    @@############@@mm::..                          ....--++####
+####@@mm::::--::++++::--..    ..    ..  ..@@##########mm--                                ....----##
+##@@@@mm++::----::::--------    ..  ....----::@@@@@@mm::                                  ........::
+##MMmmMMmm------::----..  ..      ..  ..--++::------....                                ....----..--
+@@@@++::::----++::----..    ..    ......--MMMM++++::------                          ..    ......--::
+MMMMmm++++++::----------          ........::@@@@@@MMmm::                              ..    ....  ..
+MMmm++++++::----..----::--..  ..    ........@@######MM::                                  ..........
+++++++++::::::------::::------............----######mm                                        ----..
+++++mmmm++++::::..--::----------  ..----..--::####++..                                    ....  ..--
+mmMMmmmmmm++++--..--::----..::::----..::::----mm##                                          ..  ..--
+mmMMMMMMmm++::::----::----..--::--..--::++--..----                                        ..  ..--..
+++MMmm@@MMmm++::----------....--------::++----                                          --    ----..
+++MMMMmm@@mm++::::::::--..--..::----..--    ....                                        --    ------
+mmmmmmmmMMmm++++::++::........------  ....--......                                            --::::
+MMmmmmMM@@MMmmmm++::------..----....                          ..                    ..      ::::++--
+++mmmm@@@@@@MM++++::------..........                          ..            ....      ..  ::::::++--
+mmMMMM@@@@@@mm++::::::----........                      --      ..          --....  ..------------::
+mm++MMMMmmMMMMmm++::::::----........                  ..  ..  ..--          ..--..----..--..--    ..
+MM@@mmMMmmMM@@MM++::++::--......----..          mm++        ..  --..  ..      ..    ......    --....
+mmmm++mmmm++MMmm::++++::----..----::....              ....  ..  ......                      ..      
+mmmm++mmmmMMMMmm++mm::::::----..::......          --....----......--..                  --      ..--
 
             </pre>
             </div>
@@ -164,38 +352,6 @@
         <pre class="ascii">...</pre>
       </div>
     </section>
-
-  </div>
-
-  <!-- Projects Data -->
-  <div id="project-content" style="display:none;">
-
-    <div id="projectA">
-      <h3>> Project A</h3>
-      <p>Detailed description of Project A.</p>
-
-      <div class="project-meta">
-        <span class="project-year">2024</span>
-
-        <div class="project-tech">
-          <img src="assets/icons/python.svg">
-          <img src="assets/icons/flask.svg">
-        </div>
-      </div>
-
-      <img src="assets/projectA-thumb.png" class="project-full-image">
-    </div>
-
-
-    <div id="projectB">
-      <h3>> Project B</h3>
-      <p>Detailed description of Project B.</p>
-    </div>
-
-    <div id="projectC">
-      <h3>> Project C</h3>
-      <p>Detailed description of Project C.</p>
-    </div>
 
   </div>
 
@@ -258,26 +414,23 @@
       sections.forEach(s => observer.observe(s, { attributes: true, attributeFilter: ["class"] }));
 
 
-      /* carrossel */
+      /* PROJECTS */
       const scrollBox = document.getElementById("projectsScroll");
       const leftArrow = document.getElementById("scrollLeft");
       const rightArrow = document.getElementById("scrollRight");
 
-      leftArrow.onclick = () => scrollBox.scrollBy({ left: -400, behavior: "smooth" });
-      rightArrow.onclick = () => scrollBox.scrollBy({ left: 400, behavior: "smooth" });
+      leftArrow.onclick = () => scrollBox.scrollBy({ left: -416, behavior: "smooth" });
+      rightArrow.onclick = () => scrollBox.scrollBy({ left: 416, behavior: "smooth" });
 
 
-      /* project */
       const display = document.getElementById("projects-display");
       const list = document.getElementById("projects-list");
       const contentBox = document.getElementById("projects-content");
       const hiddenContent = document.getElementById("project-content");
 
-      const projectIds = ["projectA", "projectB", "projectC", "projectA", "projectB"];
-
-      document.querySelectorAll(".project-card").forEach((card, index) => {
+      document.querySelectorAll(".project-card").forEach(card => {
         card.addEventListener("click", () => {
-          const targetId = projectIds[index];
+          const targetId = card.dataset.target;
           const info = hiddenContent.querySelector(`#${targetId}`);
 
           if (!info) return;
@@ -289,6 +442,7 @@
           updateGhost();
         });
       });
+
 
       document.getElementById("projects-back").addEventListener("click", () => {
         display.style.display = "none";
